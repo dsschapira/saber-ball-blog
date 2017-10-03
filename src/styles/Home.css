@@ -21,8 +21,8 @@
     background-color:darkslategrey;
 }
 .content-container-home{
-    min-height:300px;
-    background-color:white;
+    min-height:1000px;
+    background-color:#E8E8E8;
 }
 .buffer-space{
     height:50px;
@@ -31,21 +31,36 @@
     margin: 0 auto;
     padding-top:10px;
     padding-bottom:30px;
-    width:85%;
+    width:99%;
+}
+@media(max-width:1333px){
+    .posts-box-container{
+        width:75%;
+    }
+}
+@media(max-width:1260px){
+    .posts-box-container{
+        width:50%;
+    }
 }
 .post-card{
-    border:1px solid black;
-    margin-top:20px;
+    display: inline-block;
+    margin-top: 1em;
+    margin-right:1em;
+    background-color:white;
+    box-shadow: 2px 2px grey;
+
 }
 .post-card-content{
     padding-left:1em;
     padding-right: 1em;
+    max-width:30em;
 }
 .post-card-header{
     background-color:darkslategrey;
 }
 .post-card-content>h1{
-    font-size:180%;
+    font-size:120%;
     font-weight:bold;
     color:white;
     margin-top:0px;
