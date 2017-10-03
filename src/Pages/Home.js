@@ -12,11 +12,6 @@ export default class Home extends Component{
         catPath: PropTypes.string.isRequired
     }
 
-    componentDidMount(){
-        this.setState({
-            category: 'most-recent'
-        });
-    }
 
     render(){
         return(

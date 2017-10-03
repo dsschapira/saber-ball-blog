@@ -21,9 +21,13 @@
     background-color:darkslategrey;
 }
 .content-container-home{
-    min-height:160px;
+    min-height:300px;
     background-color:white;
 }
 .buffer-space{
     height:50px;
+}
+.posts-box-container{
+    margin: 0 auto;
+    width:85%;
 }

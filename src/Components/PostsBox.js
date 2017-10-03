@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import DataActions from '../flux/actions/DataActions.js';
 import DataStore from '../flux/stores/DataStore.js';
+import PostOnHome from './PostOnHome';
 
 //!!!!! Will need to update this before ready for production!!!!
 function catMap(catPath){
@@ -19,7 +20,7 @@ function catMap(catPath){
 export default class PostsBox extends Component{
 
     state = {
-        data: {}
+        data: []
     };
 
     static propTypes = {
@@ -38,7 +39,7 @@ export default class PostsBox extends Component{
                 });
             },catMap(this.props.path));
         }
-        else{
+        else{ //results already come back as most recent at index 0
             DataActions.getPages(()=>{
                 this.setState({
                     data: DataStore.getAllPosts()
@@ -48,10 +49,20 @@ export default class PostsBox extends Component{
     }
 
     render(){
-        console.log(this.state.data);
-        console.log(this.props.path);
+
+        const posts = this.state.data.map((post, index) => {
+            return(
+                <PostOnHome 
+                    key = {post.id}
+                    title = {post.title.rendered}
+                    excerpt = {post.excerpt.rendered}
+                />
+            );
+        });
+        
         return(
-            <div>
+            <div className="posts-box-container">
+                {posts}
             </div>
         );
     }

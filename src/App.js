@@ -19,12 +19,12 @@ class App extends Component {
           <Header />
           <Switch>
             <Route exact path="/" render={() => <Redirect to="/home" />}/>
-            <Route path="/home" render={ () => <Home catPath="most-recent"/>}/>
-            <Route path="/home/most%20recent" render={ () => <Home catPath="most-recent"/>}/>
-            <Route path="/home/player%20analysis" render={ () => <Home catPath="player-analysis"/>}/>
+            <Route exact path="/home" render={ () => <Home catPath="most-recent"/>}/>
+            <Route path="/home/most-recent" render={ () => <Home catPath="most-recent"/>}/>
+            <Route path="/home/player-analysis" render={ () => <Home catPath="player-analysis"/>}/>
             <Route path="/home/prospects" render={ () => <Home catPath="prospects"/>}/>
-            <Route path="/home/roster%20construction" render={ () => <Home catPath="roster-construction"/>}/>
-            <Route path="/home/trade%20analysis" render={ () => <Home catPath="trade-analysis"/>}/>
+            <Route path="/home/roster-construction" render={ () => <Home catPath="roster-construction"/>}/>
+            <Route path="/home/trade-analysis" render={ () => <Home catPath="trade-analysis"/>}/>
             <Route path="/about" render={ () => <Page slug="about" />}/>
             <Route path="/Basic-Pitcher-Statistics" render={ () => <Page slug="basic-pitcher-statistics" /> }/>
             <Route path="/Basic-Hitter-Statistics" render={ () => <Page slug="basic-hitter-statistics" /> }/>
