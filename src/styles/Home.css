@@ -38,6 +38,21 @@
     margin-top:20px;
 }
 .post-card-content{
-    margin-left:1em;
-    margin-right: 1em;
+    padding-left:1em;
+    padding-right: 1em;
+}
+.post-card-header{
+    background-color:darkslategrey;
+}
+.post-card-content>h1{
+    font-size:180%;
+    font-weight:bold;
+    color:white;
+    margin-top:0px;
+    margin-bottom:0px;
+    padding-top:0.2em;
+    padding-bottom:0.2em;
+}
+.post-card-content>p{
+    margin-top:0.5em;
 }
