@@ -1,6 +1,6 @@
 ## SaberBallBlog
 
-This is a redesign of the SaberBallBlog baseball blog using React, Router v4, Alt, and Flux.  Wordpress is used on the backend as the CMS.
+This is a redesign of the SaberBallBlog baseball blog using React (with Create React App to handle webpack and bable), Router v4, and Alt (for Flux implementation).  Wordpress is used on the backend as the CMS.
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
