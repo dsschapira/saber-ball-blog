@@ -14,7 +14,8 @@ class DataStore{
             getAll: this.getAll,
             getAllPages: this.getAllPages,
             getAllPosts: this.getAllPosts,
-            getPageBySlug: this.getPageBySlug
+            getPageBySlug: this.getPageBySlug,
+            getPostById: this.getPostById
         });
     }
 

@@ -3,9 +3,20 @@ import Banner from '../Components/Banner';
 import '../styles/Home.css';
 import {Button} from 'react-bootstrap';
 import Filter from '../Components/Filter';
-//import PropTypes from 'prop-types';
+import PostsBox from '../Components/PostsBox';
+import PropTypes from 'prop-types';
 
 export default class Home extends Component{
+
+    static propTypes = {
+        catPath: PropTypes.string.isRequired
+    }
+
+    componentDidMount(){
+        this.setState({
+            category: 'most-recent'
+        });
+    }
 
     render(){
         return(
@@ -22,7 +33,7 @@ export default class Home extends Component{
                 </div>
                 <Filter/>
                 <div className="content-container-home">
-
+                    <PostsBox path={this.props.catPath}/>
                 </div>
                 <div className="buffer-space">
                 </div>
