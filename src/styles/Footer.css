@@ -1,0 +1,28 @@
+.footer-container{
+    height:100%;
+    width:100%;
+    background-color:#202D2C;
+    padding-bottom:20px;
+}
+.footer{
+    padding-top:40px;
+    margin-left:20px;
+    color:white;
+}
+.archive{
+    width:155px;
+    list-style:none;
+    margin-top:10px;
+    padding-left:0px;
+    font-size:90%;
+}
+.archive-link{
+    color:grey;
+}
+.archive:hover{
+    cursor:pointer;
+}
+.custom-social-icons{
+    justify-content:right;
+    margin-right:1em;
+}

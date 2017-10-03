@@ -1,0 +1,29 @@
+.subscribe-btn{
+    background:#202D2C;
+    color:white;
+    border-color:white;
+}
+.filter-nav{
+    display:inline;
+}
+.filter-item{
+    border-left:1px solid gray;
+    border-right:1px solid gray;
+    margin-right:1em;
+}
+.filter-item>a:hover{
+    color:white!important;
+}
+.filter-item:hover{
+    background-color:darkslategrey;
+}
+.filter-item-active{
+    background-color:darkslategrey;
+}
+.content-container-home{
+    min-height:160px;
+    background-color:white;
+}
+.buffer-space{
+    height:50px;
+}
