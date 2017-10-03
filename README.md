@@ -1,4 +1,4 @@
-#SaberBallBlog
+## SaberBallBlog
 
 This is a redesign of the SaberBallBlog baseball blog using React, Router v4, Alt, and Flux.  Wordpress is used on the backend as the CMS.
 
