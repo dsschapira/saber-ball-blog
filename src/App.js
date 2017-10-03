@@ -18,13 +18,8 @@ class App extends Component {
         <div>
           <Header />
           <Switch>
-            <Route exact path="/" render={() => <Redirect to="/home" />}/>
-            <Route exact path="/home" render={ () => <Home catPath="most-recent"/>}/>
-            <Route path="/home/most-recent" render={ () => <Home catPath="most-recent"/>}/>
-            <Route path="/home/player-analysis" render={ () => <Home catPath="player-analysis"/>}/>
-            <Route path="/home/prospects" render={ () => <Home catPath="prospects"/>}/>
-            <Route path="/home/roster-construction" render={ () => <Home catPath="roster-construction"/>}/>
-            <Route path="/home/trade-analysis" render={ () => <Home catPath="trade-analysis"/>}/>
+            <Route exact path="/" render={() => <Redirect to="/home/most-recent" />}/>
+            <Route path="/home" component={Home}/>
             <Route path="/about" render={ () => <Page slug="about" />}/>
             <Route path="/Basic-Pitcher-Statistics" render={ () => <Page slug="basic-pitcher-statistics" /> }/>
             <Route path="/Basic-Hitter-Statistics" render={ () => <Page slug="basic-hitter-statistics" /> }/>
