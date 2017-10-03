@@ -22,6 +22,7 @@
 .banner-container-page{
     width:75%;
     margin:0 auto;
+    margin-top:50px;
     background-color:#202D2C;
     padding-bottom:1em;
 }

@@ -15,7 +15,7 @@ import '../styles/NavigationBar.css';
 
 const NavigationBar = (props) => {
     return (
-        <Navbar inverse collapseOnSelect>
+        <Navbar fixedTop inverse collapseOnSelect>
             <Navbar.Header className="nav-btn">
                 <Navbar.Brand className="pl-1">
                     <NavLink to="/home">SaberBallBlog</NavLink>
