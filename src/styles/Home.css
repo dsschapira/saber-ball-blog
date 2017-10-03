@@ -29,5 +29,15 @@
 }
 .posts-box-container{
     margin: 0 auto;
+    padding-top:10px;
+    padding-bottom:30px;
     width:85%;
+}
+.post-card{
+    border:1px solid black;
+    margin-top:20px;
+}
+.post-card-content{
+    margin-left:1em;
+    margin-right: 1em;
 }
