@@ -1,4 +1,7 @@
-<<<<<<< HEAD
+#SaberBallBlog
+
+This is a redesign of the SaberBallBlog baseball blog using React, Router v4, Alt, and Flux.  Wordpress is used on the backend as the CMS.
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
@@ -2163,7 +2166,3 @@ To resolve this:
 ## Something Missing?
 
 If you have ideas for more “How To” recipes that should be on this page, [let us know](https://github.com/facebookincubator/create-react-app/issues) or [contribute some!](https://github.com/facebookincubator/create-react-app/edit/master/packages/react-scripts/template/README.md)
-=======
-# saber-ball-blog
-Redesign of SaberBallBlog
->>>>>>> 2a58a790a3b3d32760b38b970170485a634fffa0
