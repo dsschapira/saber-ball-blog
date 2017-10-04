@@ -58,6 +58,7 @@ export default class PostsBox extends Component{
                 return(
                     <PostOnHome 
                         key = {post.id}
+                        id = {post.id}
                         title = {post.title.rendered}
                         excerpt = {post.excerpt.rendered}
                     />
