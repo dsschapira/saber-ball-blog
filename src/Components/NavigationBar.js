@@ -31,20 +31,20 @@ const NavigationBar = (props) => {
                     <Button type="submit">Submit</Button>
                 </Navbar.Form>
                 <Nav pullRight>
-                    <LinkContainer to="/about">
+                    <LinkContainer to="/about#">
                         <NavItem className="nav-btn" eventKey={1}>About</NavItem>
                     </LinkContainer>
                     <NavDropdown className="nav-btn" eventKey={3} title="Stats" id="basic-nav-dropdown">
-                        <LinkContainer to="/Basic-Pitcher-Statistics">
+                        <LinkContainer to="/Basic-Pitcher-Statistics#">
                             <MenuItem eventKey={3.1}>Basic Pitcher Statistics</MenuItem>
                         </LinkContainer>
-                        <LinkContainer to="/Basic-Hitter-Statistics">
+                        <LinkContainer to="/Basic-Hitter-Statistics#">
                             <MenuItem eventKey={3.2}>Basic Hitter Statistics</MenuItem>
                         </LinkContainer>
-                        <LinkContainer to="/Adavanced-Pitcher-Statistics">
+                        <LinkContainer to="/Adavanced-Pitcher-Statistics#">
                             <MenuItem eventKey={3.3}>Advanced Pitcher Statistics</MenuItem>
                         </LinkContainer>
-                        <LinkContainer to="/Advanced-Hitter-Statistics">
+                        <LinkContainer to="/Advanced-Hitter-Statistics#">
                             <MenuItem eventKey={3.4}>Advanced Hitter Statistics</MenuItem>
                         </LinkContainer>    
                     </NavDropdown>

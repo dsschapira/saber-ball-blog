@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import DataActions from '../flux/actions/DataActions.js';
 import DataStore from '../flux/stores/DataStore.js';
 import Banner from '../Components/Banner';
-import '../styles/Page.css';
+
 
 export default class Page extends Component{
 
@@ -28,6 +28,7 @@ export default class Page extends Component{
     }
 
     render(){
+        window.scrollTo(0,0);
         if(this.props.slug !== this.state.data.slug){
             this.getNewPage();
         }
