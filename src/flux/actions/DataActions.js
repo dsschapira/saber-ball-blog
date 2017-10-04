@@ -8,7 +8,7 @@ class DataActions {
         //'http://localhost/playgroundwp.com/wordpress'; //wordpress installation url
 
         this.pagesEndPoint = `${appUrl}/wp-json/wp/v2/pages`; //Endpoint for Wordpress pages
-        this.postsEndPoint = `${appUrl}/wp-json/wp/v2/posts`; //Endpoint for Wordpress posts
+        this.postsEndPoint = `${appUrl}/wp-json/wp/v2/posts/?per_page=90`; //Endpoint for Wordpress posts
         this.postsCatEndPoint = `${appUrl}/wp-json/wp/v2/posts?categories=`; //Endpoint for Wordpress posts filtered for a specific category
     }
 

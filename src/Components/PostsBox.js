@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Grid, Row} from 'react-bootstrap';
+import {Grid, Row, Button} from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import DataActions from '../flux/actions/DataActions.js';
 import DataStore from '../flux/stores/DataStore.js';
@@ -21,7 +21,8 @@ function catMap(catPath){
 export default class PostsBox extends Component{
 
     state = {
-        data: []
+        data: [],
+        postLastIndex: 9
     };
 
     static propTypes = {
@@ -50,24 +51,41 @@ export default class PostsBox extends Component{
     }
 
     render(){
+        let needNext = false;
 
         const posts = this.state.data.map((post, index) => {
-            console.log(post);
-            return(
-                <PostOnHome 
-                    key = {post.id}
-                    title = {post.title.rendered}
-                    excerpt = {post.excerpt.rendered}
-                />
-            );
+            if(index<this.state.postLastIndex){
+                return(
+                    <PostOnHome 
+                        key = {post.id}
+                        title = {post.title.rendered}
+                        excerpt = {post.excerpt.rendered}
+                    />
+                );
+            }else{
+                needNext=true;
+            }
         });
 
-        //The rows will each take the next 3 posts in the posts array
+        let nextButton = (
+            <div className="text-center">
+                <Button 
+                    className="next-btn" 
+                    bsSize="large"
+                    onClick={() => this.setState({
+                        postLastIndex: this.state.postLastIndex+9
+                        })}>
+                    See More Posts
+                </Button>
+            </div>);//Button will only be visible if there are more posts to show
+            //We will get up to 90 posts.  Everything else must be accessed by either search or archive.
+
         return(
             <div className="posts-box-container">
                 <Grid>
                     <Row>{posts}</Row>
                 </Grid>
+                {needNext ? nextButton : ""}
             </div>
         );
     }
