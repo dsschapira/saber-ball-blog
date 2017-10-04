@@ -1,17 +1,18 @@
 import React, {Component} from 'react';
+import {Grid, Row} from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import DataActions from '../flux/actions/DataActions.js';
 import DataStore from '../flux/stores/DataStore.js';
 import PostOnHome from './PostOnHome';
 
-//!!!!! Will need to update this before ready for production!!!!
+//!!!!! Will probably need to update this before ready for production!!!!
 function catMap(catPath){
     let categories = {
         'uncategorized':1,
-        'player-analysis':3,
-        'prospects':4,
-        'roster-construction':5,
-        'trade-analysis':6
+        'player-analysis':2,
+        'prospects':3,
+        'roster-construction':4,
+        'trade-analysis':5
     };
     return categories[catPath];
 }
@@ -51,6 +52,7 @@ export default class PostsBox extends Component{
     render(){
 
         const posts = this.state.data.map((post, index) => {
+            console.log(post);
             return(
                 <PostOnHome 
                     key = {post.id}
@@ -59,10 +61,13 @@ export default class PostsBox extends Component{
                 />
             );
         });
-        
+
+        //The rows will each take the next 3 posts in the posts array
         return(
             <div className="posts-box-container">
-                {posts}
+                <Grid>
+                    <Row>{posts}</Row>
+                </Grid>
             </div>
         );
     }

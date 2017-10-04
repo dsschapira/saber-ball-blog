@@ -33,28 +33,16 @@
     padding-bottom:30px;
     width:99%;
 }
-@media(max-width:1333px){
-    .posts-box-container{
-        width:75%;
-    }
-}
-@media(max-width:1260px){
-    .posts-box-container{
-        width:50%;
-    }
-}
 .post-card{
-    display: inline-block;
     margin-top: 1em;
     margin-right:1em;
     background-color:white;
     box-shadow: 2px 2px grey;
-
 }
 .post-card-content{
     padding-left:1em;
     padding-right: 1em;
-    max-width:30em;
+
 }
 .post-card-header{
     background-color:darkslategrey;

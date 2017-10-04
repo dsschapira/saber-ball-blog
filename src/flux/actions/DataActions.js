@@ -4,7 +4,8 @@ import alt from '../alt/alt.js';
 class DataActions {
 
     constructor() {
-        const appUrl = 'http://localhost/playgroundwp.com/wordpress'; //wordpress installation url
+        const appUrl = 'http://danschapira.com/demo-content';
+        //'http://localhost/playgroundwp.com/wordpress'; //wordpress installation url
 
         this.pagesEndPoint = `${appUrl}/wp-json/wp/v2/pages`; //Endpoint for Wordpress pages
         this.postsEndPoint = `${appUrl}/wp-json/wp/v2/posts`; //Endpoint for Wordpress posts
