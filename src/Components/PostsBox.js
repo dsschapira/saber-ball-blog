@@ -22,7 +22,7 @@ export default class PostsBox extends Component{
 
     state = {
         data: [],
-        postLastIndex: 9
+        postLastIndex: 12
     };
 
     static propTypes = {
@@ -75,7 +75,7 @@ export default class PostsBox extends Component{
                     className="next-btn" 
                     bsSize="large"
                     onClick={() => this.setState({
-                        postLastIndex: this.state.postLastIndex+9
+                        postLastIndex: this.state.postLastIndex12
                         })}>
                     See More Posts
                 </Button>

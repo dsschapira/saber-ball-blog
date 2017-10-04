@@ -2,8 +2,6 @@ import React from 'react';
 import {Navbar,
         Nav,
         NavItem,
-        NavDropdown,
-        MenuItem,
         FormGroup,
         FormControl,
         Button
@@ -23,31 +21,28 @@ const NavigationBar = (props) => {
                 <Navbar.Toggle />
             </Navbar.Header>
             <Navbar.Collapse>
-                <Navbar.Form pullRight>
+                <Navbar.Form pullLeft>
                     <FormGroup>
                         <FormControl type="text" placeholder="Search..." />
                     </FormGroup>
                     {' '}
-                    <Button type="submit">Submit</Button>
                 </Navbar.Form>
                 <Nav pullRight>
                     <LinkContainer to="/about#">
                         <NavItem className="nav-btn" eventKey={1}>About</NavItem>
                     </LinkContainer>
-                    <NavDropdown className="nav-btn" eventKey={3} title="Stats" id="basic-nav-dropdown">
-                        <LinkContainer to="/Basic-Pitcher-Statistics#">
-                            <MenuItem eventKey={3.1}>Basic Pitcher Statistics</MenuItem>
-                        </LinkContainer>
-                        <LinkContainer to="/Basic-Hitter-Statistics#">
-                            <MenuItem eventKey={3.2}>Basic Hitter Statistics</MenuItem>
-                        </LinkContainer>
-                        <LinkContainer to="/Adavanced-Pitcher-Statistics#">
-                            <MenuItem eventKey={3.3}>Advanced Pitcher Statistics</MenuItem>
-                        </LinkContainer>
-                        <LinkContainer to="/Advanced-Hitter-Statistics#">
-                            <MenuItem eventKey={3.4}>Advanced Hitter Statistics</MenuItem>
-                        </LinkContainer>    
-                    </NavDropdown>
+                    <LinkContainer to="/Basic-Pitcher-Statistics#">
+                        <NavItem className="nav-btn" eventKey={3}>Basic Pitcher Statistics</NavItem>
+                    </LinkContainer>
+                    <LinkContainer to="/Basic-Hitter-Statistics#">
+                        <NavItem className="nav-btn" eventKey={4}>Basic Hitter Statistics</NavItem>
+                    </LinkContainer>
+                    <LinkContainer to="/Adavanced-Pitcher-Statistics#">
+                        <NavItem className="nav-btn" eventKey={5}>Advanced Pitcher Statistics</NavItem>
+                    </LinkContainer>
+                    <LinkContainer to="/Advanced-Hitter-Statistics#">
+                        <NavItem className="nav-btn" eventKey={6}>Advanced Hitter Statistics</NavItem>
+                    </LinkContainer>
                 </Nav>
             </Navbar.Collapse>
         </Navbar>
