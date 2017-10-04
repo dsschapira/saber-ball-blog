@@ -1,7 +1,4 @@
-import React, {Component} from 'react';
-import {Route,
-    Redirect} from 'react-router-dom';
-import PropTypes from 'prop-types';
+import React from 'react';
 import Banner from '../Components/Banner';
 import Post from '../Components/Post';
 import '../styles/Page.css';
@@ -14,7 +11,7 @@ const PostPage = ({match}) =>{
                 <Banner />
             </div>
             <Post 
-                id = {parseInt(match.params.id)}
+                id = {parseInt(match.params.id,10)}
             />
         </div>
     );

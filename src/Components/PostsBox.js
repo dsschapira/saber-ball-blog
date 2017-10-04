@@ -65,6 +65,7 @@ export default class PostsBox extends Component{
                 );
             }else{
                 needNext=true;
+                return "";
             }
         });
 
