@@ -3,11 +3,14 @@ import DataActions from '../actions/DataActions.js';
 
 class DataStore{
     constructor() {
-        this.data = {};
+        this.data={
+            posts: {},
+            pages: {}
+        };
 
         this.bindListeners({
             
-            handleSuccess: DataActions.GET_SUCCESS
+            handleSuccess: DataActions.getSuccess
         });
 
         this.exportPublicMethods({
@@ -15,7 +18,8 @@ class DataStore{
             getAllPages: this.getAllPages,
             getAllPosts: this.getAllPosts,
             getPageBySlug: this.getPageBySlug,
-            getPostById: this.getPostById
+            getPostById: this.getPostById,
+            getPostByCat: this.getPostByCat
         });
     }
 
@@ -47,6 +51,19 @@ class DataStore{
         return posts[Object.keys(posts).find( (post,i) => {
             return posts[post].id === Id;
         })] || {}
+    }
+
+    getPostByCat(cat){
+        const posts = this.getState().data.posts;
+        return posts.filter((post)=>{
+            let ret=false;
+            for(let val=0;val<post.categories.length;val++){
+                if(cat === post.categories[val]){
+                    ret = true;
+                }
+            }
+            return ret;
+        });
     }
 }
 

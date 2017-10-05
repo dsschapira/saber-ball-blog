@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import {Grid, Row, Button} from 'react-bootstrap';
 import PropTypes from 'prop-types';
-import DataActions from '../flux/actions/DataActions.js';
 import DataStore from '../flux/stores/DataStore.js';
 import PostOnHome from './PostOnHome';
+import connectToStores from 'alt-utils/lib/connectToStores';
 
 //!!!!! Will probably need to update this before ready for production!!!!
 function catMap(catPath){
@@ -18,43 +18,54 @@ function catMap(catPath){
 }
 //NON_PRODUCTION_READY_BLOCK^^^
 
-export default class PostsBox extends Component{
+class PostsBox extends Component{
+    
+    constructor(){
+        super();
+        this.state ={
+            postLastIndex:12,
+            posts: []
+        };
+    }
+    
+    static getStores(){
+        return [DataStore];
+    }
 
-    state = {
-        data: [],
-        postLastIndex: 12
-    };
+    static getPropsFromStores(){
+        return DataStore.getState();
+    }
 
     static propTypes = {
         path: PropTypes.string.isRequired
     }
 
     componentDidMount(){
-        this.getThePosts();
+        if(this.props.data.posts.length>0){
+            this.getThePosts(); 
+        }
     }
 
     getThePosts(){
-        if(this.props.path !== "most-recent"){
-            DataActions.getPages(()=>{
-                this.setState({
-                    data: DataStore.getAllPosts()
-                });
-            },catMap(this.props.path));
+        let retArr = [];
+        if(this.props.data.posts[0]){
+            if(this.props.path !== "most-recent"){
+                retArr = DataStore.getPostByCat(catMap(this.props.path));
+            }
+            else{ //results already come back as most recent at index 0
+                retArr = DataStore.getAllPosts();
+            }
         }
-        else{ //results already come back as most recent at index 0
-            DataActions.getPages(()=>{
-                this.setState({
-                    data: DataStore.getAllPosts()
-                });
-            });
-        }
+        
+        return retArr;
     }
 
     render(){
         let needNext = false;
+        let posts = this.getThePosts();
+        let postCards = posts.map((post, index) => {
 
-        const posts = this.state.data.map((post, index) => {
-            if(index<this.state.postLastIndex){
+            if(index < this.state.postLastIndex){
                 return(
                     <PostOnHome 
                         key = {post.id}
@@ -75,7 +86,7 @@ export default class PostsBox extends Component{
                     className="next-btn" 
                     bsSize="large"
                     onClick={() => this.setState({
-                        postLastIndex: this.state.postLastIndex12
+                        postLastIndex: this.state.postLastIndex+12
                         })}>
                     See More Posts
                 </Button>
@@ -85,10 +96,11 @@ export default class PostsBox extends Component{
         return(
             <div className="posts-box-container">
                 <Grid>
-                    <Row>{posts}</Row>
+                    <Row>{postCards}</Row>
                 </Grid>
                 {needNext ? nextButton : ""}
             </div>
         );
     }
 }
+export default connectToStores(PostsBox);

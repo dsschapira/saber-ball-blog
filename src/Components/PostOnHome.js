@@ -4,11 +4,13 @@ import {Col} from 'react-bootstrap';
 import {LinkContainer} from 'react-router-bootstrap';
 
 function removeLink(excerpt){ //remove here so it won't be visible when inspected
-
+    let retStr = excerpt;
     let startIndex = excerpt.indexOf('<p class="link-more"');
-    let endIndex = excerpt.indexOf('</p>',startIndex)+4;
-
-    let retStr = excerpt.slice(0,startIndex)+excerpt.slice(endIndex+1,excerpt.length);
+    if(startIndex !== -1){
+        let endIndex = excerpt.indexOf('</p>',startIndex)+4;
+        retStr = excerpt.slice(0,startIndex)+excerpt.slice(endIndex+1,excerpt.length);
+    }
+    
 
     return retStr;
 }

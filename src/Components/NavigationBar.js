@@ -3,8 +3,7 @@ import {Navbar,
         Nav,
         NavItem,
         FormGroup,
-        FormControl,
-        Button
+        FormControl
         } from 'react-bootstrap';
 import {NavLink} from 'react-router-dom';
 import {LinkContainer} from 'react-router-bootstrap';
