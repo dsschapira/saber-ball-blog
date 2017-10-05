@@ -8,6 +8,9 @@ import Filter from '../Components/Filter';
 import PostsBox from '../Components/PostsBox';
 
 const Home = ({match}) =>{
+    if(match.path==="/home" && window.location.href.indexOf("/home/")===-1){
+        window.scrollTo(0,0);
+    }
     return(
         <div>
             <div className="banner-container">

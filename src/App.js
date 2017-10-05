@@ -29,7 +29,7 @@ class App extends Component {
         <div>
           <Header />
           <Switch>
-            <Route exact path="/" render={() => <Redirect to="/home/most-recent" />}/>
+            <Route exact path="/" render={() => <Redirect to="/home" />}/>
             <Route path="/home" component={Home}/>
             <Route path="/about" render={ () => <Page slug="about" />}/>
             <Route path="/posts/:id" component={PostPage}/>

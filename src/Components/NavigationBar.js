@@ -15,7 +15,7 @@ const NavigationBar = (props) => {
         <Navbar fixedTop inverse collapseOnSelect>
             <Navbar.Header className="nav-btn">
                 <Navbar.Brand className="pl-1">
-                    <NavLink to="/home">SaberBallBlog</NavLink>
+                    <NavLink to="/">SaberBallBlog</NavLink>
                 </Navbar.Brand>
                 <Navbar.Toggle />
             </Navbar.Header>
