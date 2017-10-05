@@ -8,10 +8,20 @@ import Footer from './Components/Footer';
 import Home from './Pages/Home';
 import Page from './Pages/Page';
 import PostPage from './Pages/PostPage';
+import DataActions from './flux/actions/DataActions';
+import DataStore from './flux/stores/DataStore';
 import './styles/App.css';
 
 
 class App extends Component {
+
+  componentDidMount(){
+    DataActions.getPages(()=>{
+      this.setState({
+          data: DataStore.getAll()
+      });
+    });
+  }
 
   render() {
     return (

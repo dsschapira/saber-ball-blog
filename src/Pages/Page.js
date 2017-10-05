@@ -1,11 +1,10 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import DataActions from '../flux/actions/DataActions.js';
 import DataStore from '../flux/stores/DataStore.js';
 import Banner from '../Components/Banner';
+import connectToStores from 'alt-utils/lib/connectToStores';
 
-
-export default class Page extends Component{
+class Page extends Component{
 
     state = {
         data: {}
@@ -15,23 +14,43 @@ export default class Page extends Component{
         slug: PropTypes.string.isRequired
     }
 
+    static getStores(){
+        return [DataStore];
+    }
+
+    static getPropsFromStores(){
+        return DataStore.getState();
+    }
+
     componentDidMount(){
-        this.getNewPage();
+        
+    }
+
+    reconcileSlug(){
+       if(this.props.slug!==this.state.data.slug){
+           return this.getNewPage();
+       } 
     }
 
     getNewPage(){
-        DataActions.getPages(()=>{
-            this.setState({
-                data: DataStore.getPageBySlug(this.props.slug)
-            });
-        });
+        let retObj = {
+            header: DataStore.getPageBySlug(this.props.slug).title
+                ?
+                DataStore.getPageBySlug(this.props.slug).title.rendered
+                :
+                "",
+            content: DataStore.getPageBySlug(this.props.slug).content
+                ?
+                DataStore.getPageBySlug(this.props.slug).content.rendered
+                :
+                ""
+        };
+        return retObj;
     }
 
     render(){
         window.scrollTo(0,0);
-        if(this.props.slug !== this.state.data.slug){
-            this.getNewPage();
-        }
+        let {header,content} = this.reconcileSlug();
         
         return(
             <div>
@@ -39,12 +58,14 @@ export default class Page extends Component{
                     <Banner />
                 </div>
                 <div className="content-container">
-                    <h1>{this.state.data.title ? this.state.data.title.rendered : ""}</h1>
+                    <h1>{header}</h1>
                     <div 
                     className="content-field"
-                    dangerouslySetInnerHTML={{__html: this.state.data.content ? this.state.data.content.rendered :""}}></div>
+                    dangerouslySetInnerHTML={{__html:content}}></div>
                 </div>
             </div>
         );
     }
 }
+
+export default connectToStores(Page);

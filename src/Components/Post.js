@@ -1,38 +1,34 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import DataActions from '../flux/actions/DataActions.js';
 import DataStore from '../flux/stores/DataStore.js';
+import connectToStores from 'alt-utils/lib/connectToStores';
 
-export default class Post extends Component{
-
-    state = {
-        data: {}
-    };
+class Post extends Component{
 
     static propTypes = {
         id: PropTypes.number.isRequired
     }
 
-    componentDidMount(){
-        this.getNewPost();
+    static getStores(){
+        return [DataStore];
     }
 
-    getNewPost(){
-        DataActions.getPages(()=>{
-            this.setState({
-                data: DataStore.getPostById(this.props.id)
-            });
-        });
+    static getPropsFromStores(){
+        return DataStore.getState();
     }
 
     render(){
+        let post = DataStore.getPostById(this.props.id);
+
         return(
             <div className="content-container">
-                <h1>{this.state.data.title ? this.state.data.title.rendered : ""}</h1>
+                <h1>{post.title ? post.title.rendered : ""}</h1>
                     <div 
                     className="content-field"
-                    dangerouslySetInnerHTML={{__html: this.state.data.content ? this.state.data.content.rendered :""}}></div>
+                    dangerouslySetInnerHTML={{__html: post.content ? post.content.rendered :""}}></div>
             </div>    
         );
     }
 }
+
+export default connectToStores(Post);
