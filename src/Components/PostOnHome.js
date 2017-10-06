@@ -18,7 +18,7 @@ function removeLink(excerpt){ //remove here so it won't be visible when inspecte
 const PostOnHome = (props) => {
     return (
         <Col lg={4} md={6}>
-            <LinkContainer to={'/posts/'+props.id+'#'}>
+            <LinkContainer to={'/posts/'+props.urlExtension+props.id}>
                 <div className="post-card">
                     <div className="post-card-header">
                         <div className="post-card-content">
@@ -37,7 +37,8 @@ const PostOnHome = (props) => {
 PostOnHome.propTypes = {
     id: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
-    excerpt: PropTypes.string
+    excerpt: PropTypes.string,
+    urlExtension: PropTypes.string
 };
 
 export default PostOnHome;

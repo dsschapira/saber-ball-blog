@@ -61,17 +61,25 @@ class PostsBox extends Component{
     }
 
     render(){
+        console.log(this.props);
         let needNext = false;
         let posts = this.getThePosts();
         let postCards = posts.map((post, index) => {
-
+        
             if(index < this.state.postLastIndex){
+
                 return(
                     <PostOnHome 
                         key = {post.id}
                         id = {post.id}
                         title = {post.title.rendered}
                         excerpt = {post.excerpt.rendered}
+                        urlExtension = {
+                            post.date.slice(0,4)+
+                            "/"+post.date.slice(5,7)+
+                            "/"+post.date.slice(8,10)+
+                            "/"+post.slug+"/"
+                            }
                     />
                 );
             }else{
