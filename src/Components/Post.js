@@ -139,8 +139,8 @@ class Post extends Component{
                         
                     <div 
                         className="content-field"
-                        dangerouslySetInnerHTML={{__html: post.content ? post.content.rendered :""}}>
-                    </div>
+                        dangerouslySetInnerHTML={{__html: post.content ? post.content.rendered :""}}></div>
+                
                     <div className="pagination-container">
                         <Row>
                             <Col
@@ -158,8 +158,7 @@ class Post extends Component{
                             </Col>
                         </Row>
                     </div>
-
-                </div>    
+                </div>
             </Grid>
         );
     }
