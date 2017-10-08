@@ -17,7 +17,7 @@ const Home = ({match}) =>{
                 <Banner />
                 <div className="text-center">
                     <Button 
-                        className="subscribe-btn" 
+                        className="call-to-action-btn" 
                         bsSize="large">
                         Subscribe
                     </Button>

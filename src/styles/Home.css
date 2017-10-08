@@ -1,7 +1,21 @@
-.subscribe-btn{
+.call-to-action-btn{
     background:#202D2C;
     color:white;
     border-color:white;
+}
+.call-to-action-btn:hover{
+    background:white;
+    color:#202d2c;
+    border-color:#202d2c;
+}
+.call-to-action-btn:focus{
+    background:white;
+    color:#202d2c;
+}
+.call-to-action-btn:active{
+    background: #202d2c!important;
+    color:white!important;
+    border-color:white!important;
 }
 .next-btn{
     background:transparent;
@@ -19,7 +33,9 @@
     color:white;
 }
 .next-btn:active{
-    background:#202D2C;
+    background:transparent!important;
+    color:#202d2c!important;
+    border:2px solid #202d2c!important;
 }
 .filter-nav{
     display:inline;
