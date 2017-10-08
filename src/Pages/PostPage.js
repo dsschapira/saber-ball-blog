@@ -12,6 +12,7 @@ const PostPage = ({match}) =>{
             </div>
             <Post 
                 id = {parseInt(match.params.id,10)}
+                category = {parseInt(match.params.categoryId,10)}
             />
         </div>
     );

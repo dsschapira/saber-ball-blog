@@ -12,7 +12,8 @@ function catMap(catPath){
         'player-analysis':2,
         'prospects':3,
         'roster-construction':4,
-        'trade-analysis':5
+        'trade-analysis':5,
+        'most-recent':0
     };
     return categories[catPath];
 }
@@ -74,7 +75,8 @@ class PostsBox extends Component{
                         title = {post.title.rendered}
                         excerpt = {post.excerpt.rendered}
                         urlExtension = {
-                            post.date.slice(0,4)+
+                            catMap(this.props.path)+
+                            "/"+post.date.slice(0,4)+
                             "/"+post.date.slice(5,7)+
                             "/"+post.date.slice(8,10)+
                             "/"+post.slug+"/"
