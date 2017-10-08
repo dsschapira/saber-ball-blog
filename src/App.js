@@ -8,6 +8,7 @@ import Footer from './Components/Footer';
 import Home from './Pages/Home';
 import Page from './Pages/Page';
 import PostPage from './Pages/PostPage';
+import SearchResultsPage from './Pages/SearchResultsPage';
 import DataActions from './flux/actions/DataActions';
 import DataStore from './flux/stores/DataStore';
 import './styles/App.css';
@@ -32,6 +33,7 @@ class App extends Component {
             <Route exact path="/" render={() => <Redirect to="/home" />}/>
             <Route path="/home" component={Home}/>
             <Route path="/about" render={ () => <Page slug="about" />}/>
+            <Route path="/search/:query" component={SearchResultsPage}/>
             <Route path="/posts/:categoryId/:year/:month/:day/:slug/:id" component={PostPage}/>
             <Route path="/Basic-Pitcher-Statistics" render={ () => <Page slug="basic-pitcher-statistics" /> }/>
             <Route path="/Basic-Hitter-Statistics" render={ () => <Page slug="basic-hitter-statistics" /> }/>

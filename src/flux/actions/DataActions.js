@@ -9,8 +9,8 @@ class DataActions {
 
         this.pagesEndPoint = `${appUrl}/wp-json/wp/v2/pages`; //Endpoint for Wordpress pages
         this.postsEndPoint = `${appUrl}/wp-json/wp/v2/posts/?per_page=90`; //Endpoint for Wordpress posts
-        //limiting to 120 posts.  Anything else can be found through the archives links
-        this.postsCatEndPoint = `${appUrl}/wp-json/wp/v2/posts?categories=`; //Endpoint for Wordpress posts filtered for a specific category
+        //limiting to 90 posts.  Anything else can be found through the archives links
+        this.searchEndPoint = `${appUrl}/wp-json/wp/v2/posts/?search=`;
     }
 
     api(endPoint){
