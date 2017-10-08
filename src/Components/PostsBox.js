@@ -61,7 +61,6 @@ class PostsBox extends Component{
     }
 
     render(){
-        console.log(this.props);
         let needNext = false;
         let posts = this.getThePosts();
         let postCards = posts.map((post, index) => {

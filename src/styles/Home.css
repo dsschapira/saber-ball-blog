@@ -35,8 +35,9 @@
 .filter-item:hover{
     background-color:darkslategrey;
 }
-.filter-item-active{
-    background-color:darkslategrey;
+.filter-item.active>a{
+    color:white!important;
+    background-image: linear-gradient(to bottom,darkslategrey 0,darkslategrey 100%)!important;
 }
 .content-container-home{
     min-height:800px;
@@ -55,10 +56,10 @@
     margin-top: 1em;
     margin-right:1em;
     background-color:white;
-    box-shadow: 6px 6px grey;
+    filter: drop-shadow(6px 6px 6px grey);
 }
 .post-card:hover{
-    box-shadow: 2px 2px grey;
+    filter: drop-shadow(2px 2px 2px grey);
     cursor:pointer;
 }
 .post-card-content{

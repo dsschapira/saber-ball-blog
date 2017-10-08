@@ -37,6 +37,7 @@ class App extends Component {
             <Route path="/Basic-Hitter-Statistics" render={ () => <Page slug="basic-hitter-statistics" /> }/>
             <Route path="/Adavanced-Pitcher-Statistics" render={ () => <Page slug="advanced-pitcher-statistics" /> }/>
             <Route path="/Advanced-Hitter-Statistics" render={ () => <Page slug="advanced-hitter-statistics" /> }/>
+            <Route render={() => <Redirect to="/home" /> } />
           </Switch>
           <Footer />
         </div>
