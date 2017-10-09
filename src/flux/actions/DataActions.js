@@ -25,35 +25,46 @@ class DataActions {
         });
     }
 
-    getPages(cb){ //if category included, it filters posts
+    getPages(cb,query=""){ //if category included, it filters posts
         this.api(this.pagesEndPoint)
             .then( (response) => {
-                this.getPosts(response,cb)
+                this.getPosts(response,cb,query);
             });
         return true;
     }
 
-    getPosts(pages,cb){
+    getPosts(pages,cb,query){
         this.api(this.postsEndPoint)
             .then( (response) => {
                 const posts = response;
-                const payload = {pages,posts};
+                if(query===""){
+                    this.relayPosts(pages,posts,cb);
+                }
+                else{
+                    this.searchPosts(pages,posts,query,cb);
+                }
+            });
+        return true;
+    }
+
+    relayPosts(pages,posts,cb){
+        const payload = {pages,posts};
+
+        this.getSuccess(payload);
+        cb(payload);
+        return true;
+    }
+
+    searchPosts(pages,posts,query,cb){
+        this.api(this.searchEndPoint+query)
+            .then( (response) => {
+                const searchRes = response;
+                const payload = {pages,posts,searchRes};
 
                 this.getSuccess(payload);
                 cb(payload);
             });
         return true;
-    }
-
-    searchPosts(query,cb){
-        this.api(this.searchEndPoint+query)
-            .then( (response) => {
-                const searchRes = response;
-                const payload = {searchRes};
-
-                this.getSuccess(payload);
-                cb(payload);
-            });
     }
 
     getSuccess(payload){
