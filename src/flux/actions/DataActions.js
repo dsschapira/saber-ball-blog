@@ -45,6 +45,17 @@ class DataActions {
         return true;
     }
 
+    searchPosts(query,cb){
+        this.api(this.searchEndPoint+query)
+            .then( (response) => {
+                const searchRes = response;
+                const payload = {searchRes};
+
+                this.getSuccess(payload);
+                cb(payload);
+            });
+    }
+
     getSuccess(payload){
         return payload;
     }

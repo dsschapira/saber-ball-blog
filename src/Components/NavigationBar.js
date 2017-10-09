@@ -2,10 +2,10 @@ import React from 'react';
 import {Navbar,
         Nav,
         NavItem,
-        FormGroup,
-        FormControl
+        FormGroup
         } from 'react-bootstrap';
 import {NavLink} from 'react-router-dom';
+import NavForm from './NavForm';
 import {LinkContainer} from 'react-router-bootstrap';
 import '../styles/NavigationBar.css';
 
@@ -22,7 +22,7 @@ const NavigationBar = (props) => {
             <Navbar.Collapse>
                 <Navbar.Form pullLeft>
                     <FormGroup>
-                        <FormControl type="text" placeholder="Search..." />
+                        <NavForm placeholder='Search...' />
                     </FormGroup>
                     {' '}
                 </Navbar.Form>
