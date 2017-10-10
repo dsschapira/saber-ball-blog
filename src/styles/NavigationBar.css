@@ -11,3 +11,12 @@
 .pl-1{
     padding-left:1.25em;
 }
+#search-bar-form{
+    margin-top:.25em;
+}
+#search-bar{
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}

@@ -5,7 +5,9 @@ class DataStore{
     constructor() {
         this.data={
             posts: {},
-            pages: {}
+            pages: {},
+            searchRes: {},
+            returned: false
         };
 
         this.bindListeners({
@@ -15,6 +17,7 @@ class DataStore{
 
         this.exportPublicMethods({
             getAll: this.getAll,
+            getAllSearchResults: this.getAllSearchResults,
             getAllPages: this.getAllPages,
             getAllPosts: this.getAllPosts,
             getPageBySlug: this.getPageBySlug,
@@ -24,11 +27,15 @@ class DataStore{
     }
 
     handleSuccess(data){
-        this.setState({data});
+        this.setState({...data, data});
     }
 
     getAll(){
         return this.getState().data;
+    }
+
+    getAllSearchResults(){
+        return this.getState().data.searchRes;
     }
 
     getAllPages(){

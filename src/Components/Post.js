@@ -134,7 +134,7 @@ class Post extends Component{
 
         return(
             <Grid>
-                <div className="content-container">
+                <div className="post-content-container">
                     <h1>{post.title ? post.title.rendered : ""}</h1>
                         
                     <div 

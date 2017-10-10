@@ -4,20 +4,8 @@ import PropTypes from 'prop-types';
 import DataStore from '../flux/stores/DataStore.js';
 import PostOnHome from './PostOnHome';
 import connectToStores from 'alt-utils/lib/connectToStores';
+import {catMap} from '../functions.js';
 
-//!!!!! Will probably need to update this before ready for production!!!!
-function catMap(catPath){
-    let categories = {
-        'uncategorized':1,
-        'player-analysis':2,
-        'prospects':3,
-        'roster-construction':4,
-        'trade-analysis':5,
-        'most-recent':0
-    };
-    return categories[catPath];
-}
-//NON_PRODUCTION_READY_BLOCK^^^
 
 class PostsBox extends Component{
     

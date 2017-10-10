@@ -1,6 +1,7 @@
 import React from 'react';
 import {Route,
     Redirect} from 'react-router-dom';
+import {LinkContainer} from 'react-router-bootstrap';
 import Banner from '../Components/Banner';
 import '../styles/Home.css';
 import {Button} from 'react-bootstrap';
@@ -16,11 +17,13 @@ const Home = ({match}) =>{
             <div className="banner-container">
                 <Banner />
                 <div className="text-center">
-                    <Button 
-                        className="call-to-action-btn" 
-                        bsSize="large">
-                        Subscribe
-                    </Button>
+                    <LinkContainer to="/about">
+                        <Button 
+                            className="call-to-action-btn" 
+                            bsSize="large">
+                            Start Here!
+                        </Button>
+                    </LinkContainer>
                 </div>
             </div>
             <Filter/>
