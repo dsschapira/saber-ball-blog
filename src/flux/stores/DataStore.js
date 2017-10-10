@@ -6,7 +6,8 @@ class DataStore{
         this.data={
             posts: {},
             pages: {},
-            searchRes: {}
+            searchRes: {},
+            returned: false
         };
 
         this.bindListeners({
@@ -26,7 +27,7 @@ class DataStore{
     }
 
     handleSuccess(data){
-        this.setState({data});
+        this.setState({...data, data});
     }
 
     getAll(){

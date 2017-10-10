@@ -55,11 +55,20 @@ class DataActions {
         return true;
     }
 
+    newSearchAction(){
+        const returned = false;
+        const searchRes = [{}];
+        const payload = {searchRes,returned};
+        this.getSuccess(payload);
+        return true;
+    }
+
     searchPosts(pages,posts,query,cb){
         this.api(this.searchEndPoint+query)
             .then( (response) => {
                 const searchRes = response;
-                const payload = {pages,posts,searchRes};
+                const returned = true;
+                const payload = {pages,posts,searchRes,returned};
 
                 this.getSuccess(payload);
                 cb(payload);

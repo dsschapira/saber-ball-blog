@@ -22,6 +22,10 @@ class SearchResultsBox extends Component{
 
     onBackButtonEvent(event){
         this.popstate = true;
+
+        this.props.data.returned = false;
+        this.props.data.searchRes = [{}];
+
         DataActions.getPages(() => {
             this.setState({
                 searchRes: DataStore.getAllSearchResults(),
@@ -32,19 +36,36 @@ class SearchResultsBox extends Component{
 
     componentDidMount(){
         this.popstate = false;
+
+        this.props.data.returned = false;
+        this.props.data.searchRes = [{}];
+
         window.onpopstate = this.onBackButtonEvent.bind(this);
         if(!this.popstate){
-            DataActions.getPages(() => {
+            setTimeout(DataActions.getPages(() => {
                 this.setState({
                     searchRes: DataStore.getAllSearchResults(),
                     currQuery: this.props.query
                 });
-            },this.props.query);
+            },this.props.query),500); //have a timeout here to stop race condition with the API fetch in App.js
+            
         }
     }
 
-    getResultCards(result){
+    getResultCards(result=''){
 
+        if(result.urlExtension==='/'){
+            return(
+                <SearchResult 
+                    key = {result.id}
+                    id = {result.id}
+                    title = {result.title}
+                    excerpt = {result.excerpt}
+                    urlExtension = {'/'}
+                />
+            );
+        }
+    
         return(
             <SearchResult 
                 key = {result.id}
@@ -65,14 +86,40 @@ class SearchResultsBox extends Component{
     render(){
         return(
             <Row>
-                {(this.props.data.searchRes&&this.props.data.searchRes[0]!==undefined)
-                ? this.props.data.searchRes.map((singleResult,index)=>{
-                        return(
-                            this.getResultCards(singleResult)
-                            );
+                {
+                    (!this.props.data.returned)
+                    ?
+                    ((this.props.data.searchRes!==undefined)
+                        ?    
+                        this.getResultCards({
+                            id:-1,
+                            title:'Searching',
+                            excerpt: 'Looking for results...',
+                            urlExtension: '/'
+                        })
+                        :
+                        this.getResultCards({
+                            id:-10,
+                            title:'No Results - no data returned',
+                            excerpt: 'There was an issue fetching the posts.  Please try again.',
+                            urlExtension: '/'
                         }) 
-                : 
-                ''}
+                    )
+                    :
+                    ((this.props.data.searchRes[0]!==undefined)
+                        ?
+                        this.props.data.searchRes.map((singleResult,index)=>{
+                            return this.getResultCards(singleResult);
+                        })
+                        :
+                        this.getResultCards({
+                            id:-10,
+                            title:'No Results',
+                            excerpt: 'No results found.  Try searching for something else.',
+                            urlExtension: '/'
+                        })
+                    )
+                }
             </Row> 
         );
     }

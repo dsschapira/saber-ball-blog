@@ -27,6 +27,7 @@ class NavForm extends Component {
   
     submitHandler(event) {
       event.preventDefault();
+      DataActions.newSearchAction();
       window.scrollTo(0,0);
     
       this.props.history.push('/search/'+encodeURI(this.state.searchString));
