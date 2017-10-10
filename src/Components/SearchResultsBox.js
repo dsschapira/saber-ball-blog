@@ -23,8 +23,7 @@ class SearchResultsBox extends Component{
     onBackButtonEvent(event){
         this.popstate = true;
 
-        this.props.data.returned = false;
-        this.props.data.searchRes = [{}];
+        DataActions.newSearchAction();
 
         DataActions.getPages(() => {
             this.setState({
@@ -37,8 +36,7 @@ class SearchResultsBox extends Component{
     componentDidMount(){
         this.popstate = false;
 
-        this.props.data.returned = false;
-        this.props.data.searchRes = [{}];
+        DataActions.newSearchAction();
 
         window.onpopstate = this.onBackButtonEvent.bind(this);
         if(!this.popstate){
