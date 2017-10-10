@@ -9,8 +9,6 @@ class NavForm extends Component {
       this.state = {
         searchString: ''
       };
-
-      this.pageBeforeSearch = this.props.history.location.pathname;
   
       this.submitHandler = this.submitHandler.bind(this);
       this.handleInput = this.handleInput.bind(this);
@@ -19,12 +17,6 @@ class NavForm extends Component {
     static propTypes={
         placeholder: PropTypes.string
     };
-
-    getLastBeforeSearch(){
-      if(this.props.history.location.pathname.slice(0,7)!=='/search'){
-        this.pageBeforeSearch = this.props.history.location.pathname;
-      }
-    }
   
     handleInput(event) {
       const target = event.target;
@@ -36,9 +28,7 @@ class NavForm extends Component {
     submitHandler(event) {
       event.preventDefault();
       window.scrollTo(0,0);
-      this.getLastBeforeSearch();
-      
-      this.props.history.push(this.pageBeforeSearch);
+    
       this.props.history.push('/search/'+encodeURI(this.state.searchString));
 
       DataActions.getPages(() => {

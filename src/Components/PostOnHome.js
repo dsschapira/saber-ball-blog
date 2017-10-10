@@ -2,18 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {Col} from 'react-bootstrap';
 import {LinkContainer} from 'react-router-bootstrap';
-
-function removeLink(excerpt){ //remove here so it won't be visible when inspected
-    let retStr = excerpt;
-    let startIndex = excerpt.indexOf('<p class="link-more"');
-    if(startIndex !== -1){
-        let endIndex = excerpt.indexOf('</p>',startIndex)+4;
-        retStr = excerpt.slice(0,startIndex)+excerpt.slice(endIndex+1,excerpt.length);
-    }
-    
-
-    return retStr;
-}
+import {removeLink} from '../functions.js';
 
 const PostOnHome = (props) => {
     return (
