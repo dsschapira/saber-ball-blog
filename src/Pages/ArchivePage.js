@@ -10,7 +10,10 @@ const ArchivePage = ({match}) =>{
             <div className="banner-archive-container">
                 <Banner />
             </div>
-            <ArchivedPostsBox />
+            <ArchivedPostsBox 
+                month={match.params.month}
+                year={match.params.year}
+            />
         </div>
     );
 }

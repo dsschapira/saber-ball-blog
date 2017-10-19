@@ -5,12 +5,13 @@ import DataStore from '../flux/stores/DataStore.js';
 import connectToStores from 'alt-utils/lib/connectToStores';
 import {LinkContainer} from 'react-router-bootstrap';
 import {numToMonth, monthToNum} from '../functions.js';
+import SearchResult from './SearchResult';
 
 class ArchivedPostsBox extends Component{
 
     static propTypes = {
         month: PropTypes.string,
-        year: PropTypes.number
+        year: PropTypes.string
     }
 
     static getStores(){
@@ -27,14 +28,14 @@ class ArchivedPostsBox extends Component{
 
     filterPostsByDate(){
         let retArr = [];
-        for(var i=0; i<this.props.posts.lenght;i++){
-            let date = this.props.posts[i].date; //at this point it is a string of format YYYY-MM-DD`T`HH:MM:SS
+        for(var i=0; i<this.props.data.posts.length;i++){
+            let date = this.props.data.posts[i].date; //at this point it is a string of format YYYY-MM-DD`T`HH:MM:SS
             let year = parseInt(date.slice(0,4));
             let month = parseInt(date.slice(5,7));
 
-            if(year===this.props.year){
+            if(year===parseInt(this.props.year)){
                 if(numToMonth(month)===this.props.month.toLowerCase()){
-                    retArr.push(this.props.posts[i]);
+                    retArr.push(this.props.data.posts[i]);
                 }
             }
         }
@@ -43,14 +44,29 @@ class ArchivedPostsBox extends Component{
     }
 
     render(){
-        let filteredPosts = this.filterPostsByDate;
-
-        let archivePosts = filteredPosts.map((post, index)=>{
-            
-        });
+        let filteredPosts = this.filterPostsByDate();
+        let archivePosts = filteredPosts ? filteredPosts.map((post, index)=>{
+            return(
+                <SearchResult 
+                    key={post.id}
+                    id={post.id}
+                    title={post.title.rendered}
+                    excerpt={post.excerpt.rendered}
+                    urlExtension={
+                        "0"+
+                        "/"+post.date.slice(0,4)+
+                        "/"+post.date.slice(5,7)+
+                        "/"+post.date.slice(8,10)+
+                        "/"+post.slug+"/"
+                    }
+                />
+            );
+        }):
+        "";
+        
         return(
             <div>
-                
+                {archivePosts}
             </div>
         );
     }

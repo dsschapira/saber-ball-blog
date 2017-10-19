@@ -26,21 +26,21 @@ function removeLink(excerpt){ //remove here so it won't be visible when inspecte
 
 function numToMonth(val){
     let monthMap = {
-        1:"January",
-        2:"February",
-        3:"March",
-        4:"April",
-        5:"May",
-        6:"June",
-        7:"July",
-        8:"August",
-        9:"September",
-        10:"October",
-        11:"November",
-        12:"December"
+        1:"january",
+        2:"february",
+        3:"march",
+        4:"april",
+        5:"may",
+        6:"june",
+        7:"july",
+        8:"august",
+        9:"september",
+        10:"october",
+        11:"november",
+        12:"december"
     };
 
-    return(monthMap[parseInt(val)]);
+    return(monthMap[parseInt(val,10)]);
 }
 
 function monthToNum(month){
