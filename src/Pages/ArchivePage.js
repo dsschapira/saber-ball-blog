@@ -5,15 +5,20 @@ import '../styles/Archive.css';
 
 const ArchivePage = ({match}) =>{
     window.scrollTo(0,0);
+    let month = match.params.month.slice(0,1).toUpperCase()+match.params.month.slice(1,match.params.month.length);
     return(
         <div>
             <div className="banner-archive-container">
                 <Banner />
             </div>
-            <ArchivedPostsBox 
-                month={match.params.month}
-                year={match.params.year}
-            />
+            <div className="archived-results-container">
+                <h1>Archive</h1>
+                <h2>Showing posts from {month} {match.params.year}</h2>
+                <ArchivedPostsBox 
+                    month={match.params.month}
+                    year={match.params.year}
+                />
+            </div>
         </div>
     );
 }

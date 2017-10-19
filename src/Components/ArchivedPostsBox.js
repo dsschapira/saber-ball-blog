@@ -28,14 +28,16 @@ class ArchivedPostsBox extends Component{
 
     filterPostsByDate(){
         let retArr = [];
-        for(var i=0; i<this.props.data.posts.length;i++){
-            let date = this.props.data.posts[i].date; //at this point it is a string of format YYYY-MM-DD`T`HH:MM:SS
-            let year = parseInt(date.slice(0,4));
-            let month = parseInt(date.slice(5,7));
+        if(this.props.data.posts){
+            for(var i=0; i<this.props.data.posts.length;i++){
+                let date = this.props.data.posts[i].date; //at this point it is a string of format YYYY-MM-DD`T`HH:MM:SS
+                let year = parseInt(date.slice(0,4));
+                let month = parseInt(date.slice(5,7));
 
-            if(year===parseInt(this.props.year)){
-                if(numToMonth(month)===this.props.month.toLowerCase()){
-                    retArr.push(this.props.data.posts[i]);
+                if(year===parseInt(this.props.year)){
+                    if(numToMonth(month)===this.props.month.toLowerCase()){
+                        retArr.push(this.props.data.posts[i]);
+                    }
                 }
             }
         }
@@ -63,7 +65,7 @@ class ArchivedPostsBox extends Component{
             );
         }):
         "";
-        
+
         return(
             <div>
                 {archivePosts}
