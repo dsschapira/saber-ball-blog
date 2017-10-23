@@ -19,10 +19,11 @@ const Footer = (props) => {
                 <ul className="archive">
                   <li><a href="/archive/october/2017" className="archive-link">October 2017</a></li>
                   <li><a href="/archive/august/2016" className="archive-link">August 2016</a></li>
-                  <li><a className="archive-link">July 2016</a></li>
-                  <li><a className="archive-link">June 2016</a></li>
-                  <li><a className="archive-link">May 2016</a></li>
-                  <li><a className="archive-link">April 2016</a></li>
+                  <li><a href="/archive/july/2016" className="archive-link">July 2016</a></li>
+                  <li><a href="/archive/june/2016" className="archive-link">June 2016</a></li>
+                  <li><a href="/archive/may/2016" className="archive-link">May 2016</a></li>
+                  <li><a href="/archive/april/2016" className="archive-link">April 2016</a></li>
+                  <li><a href="/archive" className="archive-link">More...</a></li>
                 </ul>
               </Col>
               <Col md={3} mdOffset={7}>

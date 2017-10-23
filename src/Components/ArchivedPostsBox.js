@@ -1,10 +1,8 @@
 import React, {Component} from 'react';
-import {Grid,Row,Col,Button} from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import DataStore from '../flux/stores/DataStore.js';
 import connectToStores from 'alt-utils/lib/connectToStores';
-import {LinkContainer} from 'react-router-bootstrap';
-import {numToMonth, monthToNum} from '../functions.js';
+import {numToMonth} from '../functions.js';
 import SearchResult from './SearchResult';
 
 class ArchivedPostsBox extends Component{
@@ -22,19 +20,15 @@ class ArchivedPostsBox extends Component{
         return DataStore.getState();
     }
 
-    constructor(){
-        super();
-    }
-
     filterPostsByDate(){
         let retArr = [];
         if(this.props.data.posts){
             for(var i=0; i<this.props.data.posts.length;i++){
                 let date = this.props.data.posts[i].date; //at this point it is a string of format YYYY-MM-DD`T`HH:MM:SS
-                let year = parseInt(date.slice(0,4));
-                let month = parseInt(date.slice(5,7));
+                let year = parseInt(date.slice(0,4),10);
+                let month = parseInt(date.slice(5,7),10);
 
-                if(year===parseInt(this.props.year)){
+                if(year===parseInt(this.props.year,10)){
                     if(numToMonth(month)===this.props.month.toLowerCase()){
                         retArr.push(this.props.data.posts[i]);
                     }

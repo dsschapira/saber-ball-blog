@@ -36,6 +36,7 @@ class App extends Component {
             <Route path="/about" render={ () => <Page slug="about" />}/>
             <Route path="/search/:query" component={SearchResultsPage}/>
             <Route path="/posts/:categoryId/:year/:month/:day/:slug/:id" component={PostPage}/>
+            <Route exact path="/archive/" component={ArchivePage}/>
             <Route path="/archive/:month/:year" component={ArchivePage}/>
             <Route path="/Basic-Pitcher-Statistics" render={ () => <Page slug="basic-pitcher-statistics" /> }/>
             <Route path="/Basic-Hitter-Statistics" render={ () => <Page slug="basic-hitter-statistics" /> }/>
