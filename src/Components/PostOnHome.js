@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {Col} from 'react-bootstrap';
 import {LinkContainer} from 'react-router-bootstrap';
-import {removeLink} from '../functions.js';
+import {removeLink,limitLength} from '../functions.js';
 
 const PostOnHome = (props) => {
     return (
@@ -15,7 +15,7 @@ const PostOnHome = (props) => {
                         </div>
                     </div>
                     <div className="post-card-content">
-                        <p dangerouslySetInnerHTML={{__html: removeLink(props.excerpt)}}></p>
+                        <p dangerouslySetInnerHTML={{__html: limitLength(removeLink(props.excerpt),750)}}></p>
                     </div>
                 </div>
             </LinkContainer>

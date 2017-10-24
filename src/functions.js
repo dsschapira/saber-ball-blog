@@ -24,4 +24,49 @@ function removeLink(excerpt){ //remove here so it won't be visible when inspecte
     return retStr;
 }
 
-export {catMap, removeLink};
+function limitLength(str,maxLength){
+    if(str.length>maxLength){
+        str = str.slice(0,maxLength)+"...";
+    }
+    return str;
+}
+
+function numToMonth(val){
+    let monthMap = {
+        1:"january",
+        2:"february",
+        3:"march",
+        4:"april",
+        5:"may",
+        6:"june",
+        7:"july",
+        8:"august",
+        9:"september",
+        10:"october",
+        11:"november",
+        12:"december"
+    };
+
+    return(monthMap[parseInt(val,10)]);
+}
+
+function monthToNum(month){
+    let monthMap = {
+        "january":1,
+        "february":2,
+        "march":3,
+        "april":4,
+        "may":5,
+        "june":6,
+        "july":7,
+        "august":8,
+        "september":9,
+        "october":10,
+        "november":11,
+        "december":12
+    };
+
+    return(monthMap[month]);
+}
+
+export {catMap, removeLink, numToMonth, monthToNum, limitLength};

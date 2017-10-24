@@ -1,0 +1,32 @@
+.banner-archive-container{
+    width:100%;
+    margin:0 auto;
+    margin-top:50px;
+    background-color:#202D2C;
+    padding-bottom:1em;
+}
+.archived-results-container{
+    margin:0 auto;
+    min-height:500px;
+    background-color:white;
+    width: 89%;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom:1em;
+}
+.archived-results-container>h1{
+    margin-top:0px;
+    padding-top:10px;
+    font-weight:bold;
+    text-decoration: underline;
+}
+.archive-card-header{
+    background-color:darkslategrey;
+    padding-top:.5em;
+    padding-bottom:.1em;
+}
+.archive-card-header>h4{
+    color:white;
+    font-weight:bold;
+    padding-left:.25em;
+}

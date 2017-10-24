@@ -24,7 +24,8 @@ const SearchResult = (props) => {
 SearchResult.propTypes = {
     id: PropTypes.number.isRequired,
     title: PropTypes.string,
-    excerpt: PropTypes.string
+    excerpt: PropTypes.string,
+    urlExtension: PropTypes.string
 };
 
 export default SearchResult;
