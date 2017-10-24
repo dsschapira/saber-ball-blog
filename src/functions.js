@@ -24,6 +24,13 @@ function removeLink(excerpt){ //remove here so it won't be visible when inspecte
     return retStr;
 }
 
+function limitLength(str,maxLength){
+    if(str.length>maxLength){
+        str = str.slice(0,maxLength)+"...";
+    }
+    return str;
+}
+
 function numToMonth(val){
     let monthMap = {
         1:"january",
@@ -62,4 +69,4 @@ function monthToNum(month){
     return(monthMap[month]);
 }
 
-export {catMap, removeLink, numToMonth, monthToNum};
+export {catMap, removeLink, numToMonth, monthToNum, limitLength};
