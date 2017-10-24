@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import DataStore from '../flux/stores/DataStore.js';
 import connectToStores from 'alt-utils/lib/connectToStores';
 import {LinkContainer} from 'react-router-bootstrap';
+import '../styles/Post.css';
 
 class Post extends Component{
 
@@ -88,6 +89,14 @@ class Post extends Component{
         let prevPostURL = "";
         let nextPostURL = "";
 
+        /*let url = {
+            facebookLike: "",
+            facebookShare: "",
+            facebookMessenger: "",
+            twitter: "",
+            google: ""
+        };*/
+
         for(var i = 0 ; i<allPosts.length; i++ ){
             if(this.props.id === allPosts[i].id){
 
@@ -133,33 +142,36 @@ class Post extends Component{
         );
 
         return(
-            <Grid>
-                <div className="post-content-container">
-                    <h1>{post.title ? post.title.rendered : ""}</h1>
-                        
-                    <div 
-                        className="content-field"
-                        dangerouslySetInnerHTML={{__html: post.content ? post.content.rendered :""}}></div>
-                
-                    <div className="pagination-container">
-                        <Row>
-                            <Col
-                                md={4}
-                                xs={6}
-                            >
-                                {this.needBack? backButton: ""}
-                            </Col>
-                            <Col
-                                md={4}
-                                mdOffset={4}
-                                xs={6}
-                            >
-                                {this.needNext? forwardButton: ""}
-                            </Col>
-                        </Row>
+            <div>
+                <Grid>
+                    <div className="post-content-container">
+                        <h1
+                        dangerouslySetInnerHTML={{__html: post.title ? post.title.rendered : ""}}></h1>
+                            
+                        <div 
+                            className="content-field"
+                            dangerouslySetInnerHTML={{__html: post.content ? post.content.rendered :""}}></div>
+                    
+                        <div className="pagination-container">
+                            <Row>
+                                <Col
+                                    md={4}
+                                    xs={6}
+                                >
+                                    {this.needBack? backButton: ""}
+                                </Col>
+                                <Col
+                                    md={4}
+                                    mdOffset={4}
+                                    xs={6}
+                                >
+                                    {this.needNext? forwardButton: ""}
+                                </Col>
+                            </Row>
+                        </div>
                     </div>
-                </div>
-            </Grid>
+                </Grid>
+            </div>
         );
     }
 }

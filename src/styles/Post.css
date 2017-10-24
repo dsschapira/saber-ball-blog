@@ -1,0 +1,10 @@
+@media(min-width:1325px){
+    .share-buttons-box{
+        position:fixed;
+        top:33%;
+        left:96%;
+        height:200px;
+        width:55px;
+        background-color:white;
+    }
+}
