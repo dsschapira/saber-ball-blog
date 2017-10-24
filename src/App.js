@@ -8,6 +8,7 @@ import Footer from './Components/Footer';
 import Home from './Pages/Home';
 import Page from './Pages/Page';
 import PostPage from './Pages/PostPage';
+import ArchivePage from './Pages/ArchivePage';
 import SearchResultsPage from './Pages/SearchResultsPage';
 import DataActions from './flux/actions/DataActions';
 import DataStore from './flux/stores/DataStore';
@@ -35,6 +36,8 @@ class App extends Component {
             <Route path="/about" render={ () => <Page slug="about" />}/>
             <Route path="/search/:query" component={SearchResultsPage}/>
             <Route path="/posts/:categoryId/:year/:month/:day/:slug/:id" component={PostPage}/>
+            <Route exact path="/archive/" component={ArchivePage}/>
+            <Route path="/archive/:month/:year" component={ArchivePage}/>
             <Route path="/Basic-Pitcher-Statistics" render={ () => <Page slug="basic-pitcher-statistics" /> }/>
             <Route path="/Basic-Hitter-Statistics" render={ () => <Page slug="basic-hitter-statistics" /> }/>
             <Route path="/Adavanced-Pitcher-Statistics" render={ () => <Page slug="advanced-pitcher-statistics" /> }/>

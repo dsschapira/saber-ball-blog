@@ -55,7 +55,6 @@ class PostsBox extends Component{
         let postCards = posts.map((post, index) => {
         
             if(index < this.state.postLastIndex){
-
                 return(
                     <PostOnHome 
                         key = {post.id}
@@ -89,11 +88,21 @@ class PostsBox extends Component{
                 </Button>
             </div>);//Button will only be visible if there are more posts to show
             //We will get up to 90 posts.  Everything else must be accessed by either search or archive.
-
+        var allPostCards=[];
+        for(var i=0;i<postCards.length;i=i+3){
+            allPostCards.push(
+                    <Row
+                    key={i}>
+                        {postCards[i]}
+                        {postCards[i+1]?postCards[i+1]:""}
+                        {postCards[i+2]?postCards[i+2]:""}
+                    </Row>
+                );
+        }
         return(
             <div className="posts-box-container">
                 <Grid>
-                    <Row>{postCards}</Row>
+                    {allPostCards}
                 </Grid>
                 {needNext ? nextButton : ""}
             </div>
