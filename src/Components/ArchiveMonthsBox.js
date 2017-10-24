@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import DataStore from '../flux/stores/DataStore.js';
 import connectToStores from 'alt-utils/lib/connectToStores';
 import {numToMonth} from '../functions.js';
+import {LinkContainer} from 'react-router-bootstrap';
 
 class ArchiveMonthsBox extends Component{
 
@@ -11,10 +12,6 @@ class ArchiveMonthsBox extends Component{
 
     static getPropsFromStores(){
         return DataStore.getState();
-    }
-
-    constructor(){
-        super();
     }
 
     getMonthsArray(){
@@ -45,9 +42,30 @@ class ArchiveMonthsBox extends Component{
 
     render(){
         var archivedMonths = this.getMonthsArray();
-        console.log(archivedMonths);
+        let archives=[];
+
+        for(var key in archivedMonths){
+            let route="/archive/"+key.slice(0,key.indexOf(" "))+"/"+key.slice(key.indexOf(" ")+1,key.length);
+
+            archives.push(
+                <LinkContainer key={key} to={route}>
+                    <div className="post-card">
+                        <div className="archive-card-header">
+                            <h4>
+                                {key}
+                            </h4>
+                        </div>
+                        <div className="post-card-content">
+                            Post Count: {archivedMonths[key]}
+                        </div>
+                    </div>
+                </LinkContainer>
+            );
+        }
+
         return(
             <div>
+                {archives}
             </div>
         );
     }

@@ -20,3 +20,13 @@
     font-weight:bold;
     text-decoration: underline;
 }
+.archive-card-header{
+    background-color:darkslategrey;
+    padding-top:.5em;
+    padding-bottom:.1em;
+}
+.archive-card-header>h4{
+    color:white;
+    font-weight:bold;
+    padding-left:.25em;
+}
