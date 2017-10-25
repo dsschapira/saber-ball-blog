@@ -23,13 +23,16 @@ class Page extends Component{
     }
 
     componentDidMount(){
-        
+       
     }
 
     reconcileSlug(){
-       if(this.props.slug!==this.state.data.slug){
-           return this.getNewPage();
-       } 
+        if(this.props.data.pages){
+            return this.getNewPage();
+        }
+        else{
+            return({header:"Loading",content:"Getting Page..."});
+        }
     }
 
     getNewPage(){

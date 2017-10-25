@@ -34,9 +34,9 @@ const PostOnHome = (props) => {
                                 <h1 dangerouslySetInnerHTML={{__html: props.title}}></h1>
                             </div>
                         </div>
-                        <Image className="card-img-top" src={props.media} />
+                        <Image className="card-img-top card-img" src={props.media} />
                         <div className="post-card-content">
-                            <p dangerouslySetInnerHTML={{__html: limitLength(removeLink(props.excerpt),750)}}></p>
+                            <p dangerouslySetInnerHTML={{__html: limitLength(removeLink(props.excerpt),850)}}></p>
                         </div>
                     </div>
                 </LinkContainer>

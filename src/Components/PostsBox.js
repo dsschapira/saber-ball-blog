@@ -30,7 +30,7 @@ class PostsBox extends Component{
     }
 
     componentDidMount(){
-        if(this.props.data.posts.length>0){
+        if(this.props.data.posts&&this.props.data.posts.length>0){
             this.getThePosts(); 
         }
     }

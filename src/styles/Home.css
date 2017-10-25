@@ -81,7 +81,7 @@
 .post-card-content{
     padding-left:1em;
     padding-right: 1em;
-
+    padding-bottom:.25em;
 }
 .post-card-header{
     background-color:darkslategrey;
@@ -99,4 +99,8 @@
 }
 .post-card-content>p{
     margin-top:0.5em;
+}
+.card-img{
+    margin-left:1em;
+    margin-top:.25em;
 }
