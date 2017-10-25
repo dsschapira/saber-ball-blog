@@ -65,7 +65,22 @@ class ArchiveMonthsBox extends Component{
 
         return(
             <div>
-                {archives}
+                {archives.length>0
+                    ?
+                    archives
+                    :
+                    (
+                    <div className="post-card">
+                        <div className="archive-card-header">
+                            <h4>
+                                {"Loading"}
+                            </h4>
+                        </div>
+                        <div className="post-card-content">
+                            Retreiving archive...
+                        </div>
+                    </div>
+                    )}
             </div>
         );
     }

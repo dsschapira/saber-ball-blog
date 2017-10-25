@@ -20,13 +20,14 @@
 }
 .content-field{
     padding-bottom:40px;
+    margin-top:2em;
 }
 .content-field>figure{
     width:75% !important;
     height:auto;
 }
 .content-field>figure>img{
-    width:75%;
+    width:115%;
     height:auto;
 }
 .content-field>p>img{

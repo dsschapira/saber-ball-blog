@@ -29,7 +29,7 @@ const Home = ({match}) =>{
             <Filter/>
             <div className="content-container-home">
                 <Route exact path={match.path}
-                                render = { () => <Redirect to={`${match.path}/most-recent`}/>} />
+                    render = { () => <Redirect to={`${match.path}/most-recent`}/>} />
                 <Route 
                     path={`${match.path}/most-recent`} 
                     render={ () => <PostsBox path="most-recent"/>}/>

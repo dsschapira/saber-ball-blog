@@ -41,7 +41,7 @@ class ArchivedPostsBox extends Component{
 
     render(){
         let filteredPosts = this.filterPostsByDate();
-        let archivePosts = filteredPosts ? filteredPosts.map((post, index)=>{
+        let archivePosts = filteredPosts.length>0 ? filteredPosts.map((post, index)=>{
             return(
                 <SearchResult 
                     key={post.id}
@@ -58,7 +58,12 @@ class ArchivedPostsBox extends Component{
                 />
             );
         }):
-        "";
+        <SearchResult 
+            id={-1}
+            title={"Loading"}
+            excerpt={"Retreiving archived posts..."}
+            urlExtension={""}
+        />;
 
         return(
             <div>
