@@ -10,7 +10,7 @@
     margin:0 auto;
     min-height:300px;
     background-color:white;
-    width:89%;
+    width:75%;
     padding-left: 1em;
     padding-right: 1em;
 }
@@ -28,6 +28,18 @@
 }
 .content-field{
     padding-bottom:40px;
+}
+.content-field>figure{
+    width:75% !important;
+    height:auto;
+}
+.content-field>figure>img{
+    width:75%;
+    height:auto;
+}
+.content-field>p>img{
+    width:75%;
+    height:auto;
 }
 .content-field>iframe{
     max-width: 75%;

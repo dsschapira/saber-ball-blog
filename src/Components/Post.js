@@ -120,7 +120,7 @@ class Post extends Component{
                     to={prevPostURL?prevPostURL:"/home"}>
                     <Button 
                         className="pagination-btn" 
-                        bsSize="large"
+                        bsSize="small"
                         >
                         &lt; Prev Post
                     </Button>
@@ -133,7 +133,7 @@ class Post extends Component{
                     to={nextPostURL?nextPostURL:"/home"}>
                     <Button
                         className="pagination-btn"
-                        bsSize="large"
+                        bsSize="small"
                         >
                         Next Post &gt;
                     </Button>
