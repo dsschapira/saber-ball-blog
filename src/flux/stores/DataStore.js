@@ -6,12 +6,12 @@ class DataStore{
         this.data={
             posts: {},
             pages: {},
+            media: {},
             searchRes: {},
             returned: false
         };
 
         this.bindListeners({
-            
             handleSuccess: DataActions.getSuccess
         });
 
@@ -20,9 +20,11 @@ class DataStore{
             getAllSearchResults: this.getAllSearchResults,
             getAllPages: this.getAllPages,
             getAllPosts: this.getAllPosts,
+            getAllMedia: this.getAllMedia,
             getPageBySlug: this.getPageBySlug,
             getPostById: this.getPostById,
-            getPostByCat: this.getPostByCat
+            getPostByCat: this.getPostByCat,
+            getMediaById: this.getMediaById
         });
     }
 
@@ -44,6 +46,10 @@ class DataStore{
 
     getAllPosts(){
         return this.getState().data.posts;
+    }
+
+    getAllMedia(){
+        return this.getState().data.media;
     }
 
     getPageBySlug(slug){
@@ -71,6 +77,13 @@ class DataStore{
             }
             return ret;
         });
+    }
+
+    getMediaById(mediaId){
+        const media = this.getState().data.media;
+        return media[Object.keys(media).find( (img,i) => {
+            return media[img].id===mediaId;
+        })] || {}
     }
 }
 

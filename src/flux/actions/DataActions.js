@@ -10,7 +10,8 @@ class DataActions {
         this.pagesEndPoint = `${appUrl}/wp-json/wp/v2/pages`; //Endpoint for Wordpress pages
         this.postsEndPoint = `${appUrl}/wp-json/wp/v2/posts/?per_page=90`; //Endpoint for Wordpress posts
         //limiting to 90 posts.  Anything else can be found through the archives links
-        this.searchEndPoint = `${appUrl}/wp-json/wp/v2/posts/?search=`;
+        this.searchEndPoint = `${appUrl}/wp-json/wp/v2/posts/?search=`; //Endpoint for Wordpress search
+        this.mediaEndPoint = `${appUrl}/wp-json/wp/v2/media`; //Endpoint for getting media
     }
 
     api(endPoint){
@@ -38,7 +39,7 @@ class DataActions {
             .then( (response) => {
                 const posts = response;
                 if(query===""){
-                    this.relayPosts(pages,posts,cb);
+                    this.getMedia(pages,posts,cb);
                 }
                 else{
                     this.searchPosts(pages,posts,query,cb);
@@ -47,11 +48,20 @@ class DataActions {
         return true;
     }
 
-    relayPosts(pages,posts,cb){
-        const payload = {pages,posts};
+    relayPosts(pages,posts,media,cb){
+        const payload = {pages,posts,media};
 
         this.getSuccess(payload);
         cb(payload);
+        return true;
+    }
+
+    getMedia(pages,posts,cb){
+        this.api(this.mediaEndPoint)
+            .then( (response) => {
+                const media = response;
+                this.relayPosts(pages,posts,media,cb);
+            });
         return true;
     }
 

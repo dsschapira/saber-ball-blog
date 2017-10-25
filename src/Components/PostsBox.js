@@ -53,7 +53,7 @@ class PostsBox extends Component{
         let needNext = false;
         let posts = this.getThePosts();
         let postCards = posts.map((post, index) => {
-        
+
             if(index < this.state.postLastIndex){
                 return(
                     <PostOnHome 
@@ -68,6 +68,7 @@ class PostsBox extends Component{
                             "/"+post.date.slice(8,10)+
                             "/"+post.slug+"/"
                             }
+                        media = {post.featured_media!==0?DataStore.getMediaById(post.featured_media).source_url:"0"}
                     />
                 );
             }else{
