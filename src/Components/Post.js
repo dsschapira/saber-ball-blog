@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import DataStore from '../flux/stores/DataStore.js';
 import connectToStores from 'alt-utils/lib/connectToStores';
 import {LinkContainer} from 'react-router-bootstrap';
+import {numToMonth} from '../functions.js';
+import '../../node_modules/font-awesome/css/font-awesome.min.css'; 
 import '../styles/Post.css';
 
 class Post extends Component{
@@ -140,6 +142,16 @@ class Post extends Component{
                 </LinkContainer>
             </div>
         );
+        
+        let month = post.date?numToMonth(post.date.slice(5,7)):"";
+        month = month.slice(0,1).toUpperCase()+month.slice(1,month.length);
+        
+        let year = post.date?post.date.slice(0,4):"";
+
+        let day = post.date?post.date.slice(8,10):"";
+
+        let date = month+" "+day+", "+year;
+        let clockIcon = post.date?<i className="fa fa-clock-o" aria-hidden="true"></i>:"";
 
         return(
             <div>
@@ -147,11 +159,11 @@ class Post extends Component{
                     <div className="post-content-container">
                         <h1
                         dangerouslySetInnerHTML={{__html: post.title ? post.title.rendered : ""}}></h1>
-                            
+                        <p>{clockIcon} {date}</p>
                         <div 
                             className="content-field"
                             dangerouslySetInnerHTML={{__html: post.content ? post.content.rendered :""}}></div>
-                    
+                        
                         <div className="pagination-container">
                             <Row>
                                 <Col
