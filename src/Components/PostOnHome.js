@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Col, Grid, Row, Image} from 'react-bootstrap';
+import {Col, Image} from 'react-bootstrap';
 import {LinkContainer} from 'react-router-bootstrap';
 import {removeLink,limitLength} from '../functions.js';
 

@@ -56,11 +56,18 @@ class DataActions {
         return true;
     }
 
-    getMedia(pages,posts,cb){
+    getMedia(pages,posts,cb,returned=false,searchRes=false){
         this.api(this.mediaEndPoint)
             .then( (response) => {
                 const media = response;
-                this.relayPosts(pages,posts,media,cb);
+                if(!searchRes){
+                    this.relayPosts(pages,posts,media,cb);
+                }
+                else{
+                    const payload = {pages,posts,searchRes,returned,media};
+                    this.getSuccess(payload);
+                    cb(payload);
+                }
             });
         return true;
     }
@@ -78,10 +85,8 @@ class DataActions {
             .then( (response) => {
                 const searchRes = response;
                 const returned = true;
-                const payload = {pages,posts,searchRes,returned};
-
-                this.getSuccess(payload);
-                cb(payload);
+                
+                this.getMedia(pages,posts,cb,returned,searchRes);
             });
         return true;
     }

@@ -37,7 +37,7 @@ class PostsBox extends Component{
 
     getThePosts(){
         let retArr = [];
-        if(this.props.data.posts[0]){
+        if(this.props.data.posts&&this.props.data.posts[0]){
             if(this.props.path !== "most-recent"){
                 retArr = DataStore.getPostByCat(catMap(this.props.path));
             }
@@ -45,37 +45,56 @@ class PostsBox extends Component{
                 retArr = DataStore.getAllPosts();
             }
         }
-        
+        else{
+            retArr="loading";
+        }
         return retArr;
     }
 
     render(){
         let needNext = false;
         let posts = this.getThePosts();
-        let postCards = posts.map((post, index) => {
+        let postCards;
+        if(posts!=="loading"){
+            postCards = posts.map((post, index) => {
 
-            if(index < this.state.postLastIndex){
-                return(
-                    <PostOnHome 
-                        key = {post.id}
-                        id = {post.id}
-                        title = {post.title.rendered}
-                        excerpt = {post.excerpt.rendered}
-                        urlExtension = {
-                            catMap(this.props.path)+
-                            "/"+post.date.slice(0,4)+
-                            "/"+post.date.slice(5,7)+
-                            "/"+post.date.slice(8,10)+
-                            "/"+post.slug+"/"
-                            }
-                        media = {post.featured_media!==0?DataStore.getMediaById(post.featured_media).source_url:"0"}
-                    />
-                );
-            }else{
-                needNext=true;
-                return "";
-            }
-        });
+                if(index < this.state.postLastIndex){
+                    return(
+                        <PostOnHome 
+                            key = {post.id}
+                            id = {post.id}
+                            title = {post.title.rendered}
+                            excerpt = {post.excerpt.rendered}
+                            urlExtension = {
+                                catMap(this.props.path)+
+                                "/"+post.date.slice(0,4)+
+                                "/"+post.date.slice(5,7)+
+                                "/"+post.date.slice(8,10)+
+                                "/"+post.slug+"/"
+                                }
+                            media = {post.featured_media!==0?DataStore.getMediaById(post.featured_media).source_url:"0"}
+                        />
+                    );
+                }else{
+                    needNext=true;
+                    return "";
+                }
+            });
+        }
+        else{
+            return(
+                <div className="posts-box-container">
+                    <Grid>
+                        <PostOnHome 
+                            id={-1}
+                            title={"Loading"}
+                            excerpt={"Gathering Posts..."}
+                            urlExtension={""}
+                        />
+                    </Grid>
+                </div>
+            );
+        }
 
         let nextButton = (
             <div className="text-center">
@@ -99,7 +118,7 @@ class PostsBox extends Component{
                         {postCards[i+2]?postCards[i+2]:""}
                     </Row>
                 );
-        }
+        } //ensure 3 cards per row
         return(
             <div className="posts-box-container">
                 <Grid>
