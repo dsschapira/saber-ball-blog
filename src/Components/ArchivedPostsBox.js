@@ -58,12 +58,16 @@ class ArchivedPostsBox extends Component{
                 />
             );
         }):
-        <SearchResult 
-            id={-1}
-            title={"Loading"}
-            excerpt={"Retreiving archived posts..."}
-            urlExtension={""}
-        />;
+        <div className="post-card">
+            <div className="post-card-header">
+                <div className="post-card-content">
+                    <h1 dangerouslySetInnerHTML={{__html: "Loading"}}></h1>
+                </div>
+            </div>
+            <div className="post-card-content">
+                <p dangerouslySetInnerHTML={{__html: "Retreiving archived posts..."}}></p>
+            </div>
+        </div>;
 
         return(
             <div>
