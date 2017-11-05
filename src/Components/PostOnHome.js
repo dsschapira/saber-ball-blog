@@ -17,7 +17,7 @@ const PostOnHome = (props) => {
                             </div>
                         </div>
                         <div className="post-card-content">
-                            <p dangerouslySetInnerHTML={{__html: limitLength(removeLink(props.excerpt),750)}}></p>
+                            <p dangerouslySetInnerHTML={{__html: limitLength(removeLink(props.excerpt),850)}}></p>
                         </div>
                     </div>
                 </LinkContainer>

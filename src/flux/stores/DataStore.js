@@ -61,6 +61,9 @@ class DataStore{
 
     getPostById(Id){
         const posts = this.getState().data.posts;
+        if(!posts){
+            return "";
+        }
         return posts[Object.keys(posts).find( (post,i) => {
             return posts[post].id === Id;
         })] || {}

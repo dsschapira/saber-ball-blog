@@ -7,6 +7,7 @@ import {LinkContainer} from 'react-router-bootstrap';
 import {numToMonth} from '../functions.js';
 import '../../node_modules/font-awesome/css/font-awesome.min.css'; 
 import '../styles/Post.css';
+import ShareButtons from './ShareButtons.js';
 
 class Post extends Component{
 
@@ -82,22 +83,31 @@ class Post extends Component{
         return url;
     }
 
+    getThePost(){
+        if(this.props.data.posts&&this.props.data.posts[0]){
+            return DataStore.getPostsById(this.props.id);
+        }
+        else{
+            return {
+                date: "YYYY-MM-DD",
+                title: {
+                    rendered: "Loading Post"
+                },
+                content: {
+                    rendered: "Retreiving Post..."
+                }
+            };
+        }
+    }
+
 
     render(){
         let post = DataStore.getPostById(this.props.id);
         this.needBack = true;
         this.needNext = true;
-        let allPosts = this.props.data.posts;
+        let allPosts = this.props.data.posts?this.props.data.posts:"";
         let prevPostURL = "";
         let nextPostURL = "";
-
-        /*let url = {
-            facebookLike: "",
-            facebookShare: "",
-            facebookMessenger: "",
-            twitter: "",
-            google: ""
-        };*/
 
         for(var i = 0 ; i<allPosts.length; i++ ){
             if(this.props.id === allPosts[i].id){
@@ -163,8 +173,10 @@ class Post extends Component{
                         <div 
                             className="content-field"
                             dangerouslySetInnerHTML={{__html: post.content ? post.content.rendered :""}}></div>
-                        
+                        <h4>Share this post:</h4>
+                        <ShareButtons />
                         <div className="pagination-container">
+                            <hr />
                             <Row>
                                 <Col
                                     md={4}

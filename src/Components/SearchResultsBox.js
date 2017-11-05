@@ -52,14 +52,15 @@ class SearchResultsBox extends Component{
 
     getResultCards(result=''){
 
-        if(result.urlExtension==='/'){
+        if(result.id===-1||result.id===-10){
+            console.log(result.urlExtension);
             return(
                 <SearchResult 
                     key = {result.id}
                     id = {result.id}
                     title = {result.title}
                     excerpt = {result.excerpt}
-                    urlExtension = {'/'}
+                    urlExtension = {result.urlExtension}
                 />
             );
         }
