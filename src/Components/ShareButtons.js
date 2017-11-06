@@ -3,8 +3,7 @@ import {SocialIcon} from 'react-social-icons';
 
 const ShareButtons = (props) =>{
     
-    let url='';
-    url = window.location.href;
+    const url = window.location.href;
 
     const urls = {
         twitter : "https://www.twitter.com/intent/tweet/?original_referer=saberballblog&via=saberballblog&url="+encodeURI(url),
