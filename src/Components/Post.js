@@ -8,6 +8,7 @@ import {numToMonth} from '../functions.js';
 import '../../node_modules/font-awesome/css/font-awesome.min.css'; 
 import '../styles/Post.css';
 import ShareButtons from './ShareButtons.js';
+import TweetBox from './TweetBox.js';
 
 class Post extends Component{
 
@@ -170,21 +171,28 @@ class Post extends Component{
                         <h1
                         dangerouslySetInnerHTML={{__html: post.title ? post.title.rendered : ""}}></h1>
                         <p>{clockIcon} {date}</p>
-                        <a id="twitter-follow-btn" href="https://twitter.com/SaberBallBlog?ref_src=twsrc%5Etfw" style={{
-                            position: "relative",
-                            height: "20px",
-                            boxSizing: "border-box",
-                            padding: "2px 8px 2px 6px",
-                            backgroundColor: "#1b95e0",
-                            color: "#fff",
-                            borderRadius: "3px",
-                            fontWeight: "500",
-                            cursor: "pointer",
-                            textDecoration: "none"
-                        }} data-show-count="false">Follow @SaberBallBlog</a><script async src="https://platform.twitter.com/widgets.js" charSet="utf-8"></script>
+                        <a  id="twitter-follow-btn" href="https://twitter.com/SaberBallBlog?ref_src=twsrc%5Etfw" 
+                            style={{
+                                position: "relative",
+                                height: "20px",
+                                boxSizing: "border-box",
+                                padding: "2px 8px 2px 6px",
+                                backgroundColor: "#1b95e0",
+                                color: "#fff",
+                                borderRadius: "3px",
+                                fontWeight: "500",
+                                cursor: "pointer",
+                                textDecoration: "none"
+                            }}>
+                                Follow @SaberBallBlog
+                        </a>
+                        <script async src="https://platform.twitter.com/widgets.js" charSet="utf-8"></script>
                         <div 
                             className="content-field"
                             dangerouslySetInnerHTML={{__html: post.content ? post.content.rendered :""}}></div>
+                        <hr />
+                        <TweetBox />
+                        <hr />
                         <h4>Share this post:</h4>
                         <ShareButtons />
                         <div className="pagination-container">
