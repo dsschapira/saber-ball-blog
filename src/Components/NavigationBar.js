@@ -36,7 +36,7 @@ const NavigationBar = (props) => {
                     <LinkContainer to="/Basic-Hitter-Statistics#">
                         <NavItem className="nav-btn" eventKey={4}>Basic Hitter Statistics</NavItem>
                     </LinkContainer>
-                    <LinkContainer to="/Adavanced-Pitcher-Statistics#">
+                    <LinkContainer to="/Advanced-Pitcher-Statistics#">
                         <NavItem className="nav-btn" eventKey={5}>Advanced Pitcher Statistics</NavItem>
                     </LinkContainer>
                     <LinkContainer to="/Advanced-Hitter-Statistics#">
