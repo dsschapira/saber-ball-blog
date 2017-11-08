@@ -17,7 +17,6 @@ const Footer = (props) => {
               <Col md={2}>
                 <h5>Archive</h5>
                 <ul className="archive">
-                  <li><a href="/archive/october/2017" className="archive-link">October 2017</a></li>
                   <li><a href="/archive/august/2016" className="archive-link">August 2016</a></li>
                   <li><a href="/archive/july/2016" className="archive-link">July 2016</a></li>
                   <li><a href="/archive/june/2016" className="archive-link">June 2016</a></li>
