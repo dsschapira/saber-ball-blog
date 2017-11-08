@@ -29,7 +29,8 @@ const Footer = (props) => {
               <Col md={3} mdOffset={7}>
                 <h5>Follow SaberBallBlog on Social Media!</h5>
                 <Row>
-                  <SocialIcon className="custom-social-icons" url="https://twitter.com/saberballblog"/>
+                  <SocialIcon className="custom-social-icons" network={"twitter"} url="https://twitter.com/saberballblog"/>
+                  <SocialIcon className="custom-social-icons" network={"facebook"} url="https://www.facebook.com/Saber-Ball-Blog-509258412805970/?ref=br_rs"/>
                 </Row>
               </Col>
             </Row>

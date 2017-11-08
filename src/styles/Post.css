@@ -1,5 +1,8 @@
+#twitter-follow-btn{
+    background-image: linear-gradient(to bottom,#337ab7 0,#265a88 100%);
+}
 #twitter-follow-btn:hover{
-    background-color: rgb(12,122,191) !important;
+    background-image: linear-gradient(to bottom,#265a88 0,#265a88 100%);
 }
 textarea{
     resize:none;

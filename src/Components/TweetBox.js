@@ -6,7 +6,7 @@ class TweetBox extends Component {
         super(props);
         this.state = {
             value: "@SaberBallBlog "+window.location.href,
-            charsLeft: 140-15-23
+            charsLeft: 280-15-23
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -16,7 +16,7 @@ class TweetBox extends Component {
     handleChange(event){
         this.setState({
             value: event.target.value,
-            charsLeft: 140-this.twitter.getTweetLength(event.target.value)
+            charsLeft: 280-this.twitter.getTweetLength(event.target.value)
             });
     }
 

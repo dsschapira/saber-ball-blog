@@ -177,7 +177,6 @@ class Post extends Component{
                                 height: "20px",
                                 boxSizing: "border-box",
                                 padding: "2px 8px 2px 6px",
-                                backgroundColor: "#1b95e0",
                                 color: "#fff",
                                 borderRadius: "3px",
                                 fontWeight: "500",
